@@ -41,7 +41,7 @@ get_cpu() {
 
 ## Get Used memory
 get_mem() {
-	printf "%.0f\n" $(free -m | grep Mem | awk '{print ($3/$2)*100}')
+	LC_NUMERIC=en_US.UTF-8 printf "%.0f\n" $(free -m | grep Mem | awk '{print ($3/$2)*100}')
 }
 
 ## Get Brightness
@@ -57,7 +57,7 @@ get_blight() {
 		LIGHT=${PERC%.*}
 	fi
 
-	echo "$LIGHT"
+	echo 100
 }
 
 ## Get Battery 
